@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name        Rutracker.org hash downloader 
-// @version     0.4
+// @version     0.5
 // @namespace   http://vk.com/seiya_loveless?#Rutracker.org_hash_downloader.user.js
 // @description Download torrent from rutracker.org via hash
 // @include     http://rutracker.org/forum/viewtopic.php?t=*
 // @grant       none
 // @icon        http://static.rutracker.org/favicon.ico
 // @homepage    https://github.com/seiya-dev/gm-scripts
-// @updateURL   https://github.com/seiya-dev/gm-scripts/raw/master/AniDB_MyList_Navigation.user.js
-// @downloadURL https://github.com/seiya-dev/gm-scripts/raw/master/AniDB_MyList_Navigation.user.js
+// @updateURL   https://github.com/seiya-dev/gm-scripts/raw/master/Rutracker.org_hash_downloader.user.js
+// @downloadURL https://github.com/seiya-dev/gm-scripts/raw/master/Rutracker.org_hash_downloader.user.js
 // ==/UserScript==
 
 $(function(){
