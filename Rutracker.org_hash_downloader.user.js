@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name        Rutracker.org hash downloader 
-// @version     0.6
+// @version     0.7
 // @namespace   http://vk.com/seiya_loveless?#Rutracker.org_hash_downloader.user.js
 // @description Download torrent from rutracker.org via hash
 // @include     http://rutracker.org/forum/viewtopic.php?t=*
+// @include     http://rutracker.org/forum/viewtopic.php?p=*
 // @grant       none
 // @icon        http://static.rutracker.org/favicon.ico
 // @homepage    https://github.com/seiya-dev/gm-scripts
@@ -13,13 +14,14 @@
 
 $(function(){
 	if( $('#tor-hash').text() != '' ){
-		var hash_string = $('#tor-hash').text();
-		var hash_topic_title = $('#topic-title').text();
-		var hash_uri  = 'magnet:?xt=urn:btih:'+hash_string+'&dn='+encodeURIComponent(hash_topic_title);
-			hash_uri += '&tr='+encodeURIComponent('udp://tracker.openbittorrent.com:80/announce');
-			hash_uri += '&tr='+encodeURIComponent('udp://tracker.publicbt.com:80/announce');
-			hash_uri += '&tr='+encodeURIComponent('udp://open.demonii.com:1337/announce');
-		var hash_output_new = '<a class="med" href="'+hash_uri+'">'+hash_string+'</a>';
-		$('#tor-hash').html(hash_output_new);
+		var hash = {};
+		hash.string = $('#tor-hash').text();
+		hash.title = $('#topic-title').text();
+		hash.uri  = 'magnet:?xt=urn:btih:'+hash.string+'&dn='+encodeURIComponent(hash.title);
+			hash.uri += '&tr='+encodeURIComponent('udp://tracker.openbittorrent.com:80/announce');
+			hash.uri += '&tr='+encodeURIComponent('udp://tracker.publicbt.com:80/announce');
+			hash.uri += '&tr='+encodeURIComponent('udp://open.demonii.com:1337/announce');
+		hash.html = '<a class="med" href="'+hash.uri+'">'+hash.string+'</a>';
+		$('#tor-hash').html(hash.html);
 	}
 });
