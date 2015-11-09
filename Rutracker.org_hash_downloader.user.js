@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Rutracker.org hash downloader 
-// @version     1.0
+// @version     1.0.1
 // @namespace   http://vk.com/seiya_loveless?#Rutracker.org_hash_downloader.user.js
 // @description Download torrent from rutracker.org via hash
 // @include     http://rutracker.org/forum/viewtopic.php?t=*
@@ -17,7 +17,7 @@ $(function(){
 		var hash = {};
 		hash.string = $('#tor-hash').text();
 		hash.title = $('#topic-title').text();
-		hash.uri  = 'magnet:?xt=urn:btih:'+hash.string+'&dn='+encodeURIComponent(hash.title);
+		hash.uri  = 'magnet:?xt=urn:btih:'+hash.string;
 			hash.uri += '&tr='+encodeURIComponent('http://bt.rutracker.cc/ann');
 			hash.uri += '&tr='+encodeURIComponent('http://bt2.rutracker.cc/ann');
 			hash.uri += '&tr='+encodeURIComponent('http://bt3.rutracker.cc/ann');
@@ -25,6 +25,7 @@ $(function(){
 			hash.uri += '&tr='+encodeURIComponent('udp://tracker.openbittorrent.com:80/announce');
 			hash.uri += '&tr='+encodeURIComponent('udp://tracker.publicbt.com:80/announce');
 			hash.uri += '&tr='+encodeURIComponent('udp://open.demonii.com:1337/announce');
+			hash.uri += '&dn='+encodeURIComponent(hash.title);
 		hash.html = '<a class="med" href="'+hash.uri+'">'+hash.string+'</a>';
 		$('#tor-hash').html(hash.html);
 	}
